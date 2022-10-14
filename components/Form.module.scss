@@ -1,5 +1,44 @@
 .form {
-    background-color: red;
-    flex: 3;
+    text-align: center;
     justify-content: space-between;
+    flex: 1;
+
+    @media(max-width: 1015px) {
+        margin-bottom: 3rem;
+      }
+
+    &__inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        
+        input {
+            border: none;
+            border-radius: 5px;
+            height: 2rem;
+            margin: 0 0 0.5rem 0;
+            padding: 0 0 0 0.2rem;
+            width: 35%;
+        }
+
+    }
+
+    textarea {
+        border: none;
+        border-radius: 5px;
+        height: 50%;
+        padding: 0.5rem;
+        resize: none;
+        width: 100%; 
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0.3rem 0;
+    } 
 }

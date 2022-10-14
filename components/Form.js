@@ -35,7 +35,7 @@ export default function Form() {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.form__inputs}>
                 <input name="name" type="text" placeholder="Jméno" value={values.name} onChange={handleChange}/>
                 <input name="surname" type="text" placeholder="Příjmení" value={values.surname} onChange={handleChange}/>
                 <input name="email" type="email" placeholder="Váš email" value={values.email} onChange={handleChange}/>

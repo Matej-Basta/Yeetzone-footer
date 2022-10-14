@@ -2,7 +2,22 @@
   background-color: rgb(102, 198, 102);
   color: white;
   display: flex;
-  height: 40vh;
+  justify-content: space-between;
+  min-height: 35vh;
   padding: 3rem;
   width: 100%;
+
+  &__info {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+
+    @media(max-width: 734px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  @media(max-width: 1015px) {
+    flex-direction: column-reverse;
+  }
 }

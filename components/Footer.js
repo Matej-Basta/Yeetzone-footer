@@ -9,8 +9,10 @@ import styles from "./Footer.module.scss";
 export default function Footer() {
     return (
         <footer className={styles.footer}>
-            <Documents />
-            <Social />
+            <div className={styles.footer__info}>
+                <Documents />
+                <Social />
+            </div>    
             <Form />
         </footer>
     );
