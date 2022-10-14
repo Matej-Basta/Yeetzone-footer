@@ -1,32 +1,47 @@
 // hooks
-import { useRef } from "react";
+import { useState } from "react";
 
 // styles
 import styles from "./Form.module.scss";
 
 export default function Form() {
 
-    const name = useRef();
-    const surname = useRef();
-    const email = useRef();
-    const message = useRef();
+    const [values , setValues] = useState({
+        name: "",
+        surname: "",
+        email: "",
+        message: "",
+    })
 
+    const handleChange = (event) => {
+        setValues((oldValues) => {
+                return {
+                    ...oldValues,
+                    [event.target.name]: event.target.value,
+                }
+            })
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("it has been submitted");
-        console.log(name.current.value);
-        name.current.value = null;
+        console.log(`Following data was submited: \n name:${values.name}\n surname:${values.surname}\n email:${values.email}\n message:${values.message}`);
+        setValues({
+            name: "",
+            surname: "",
+            email: "",
+            message: "",
+        })
     }
 
     return (
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <div>
-                <input type="text" placeholder="Jméno" ref={name} />
-                <input type="text" placeholder="Příjmení" ref={surname} />
-                <input type="email" placeholder="Váš email" ref={email} />
+                <input name="name" type="text" placeholder="Jméno" value={values.name} onChange={handleChange}/>
+                <input name="surname" type="text" placeholder="Příjmení" value={values.surname} onChange={handleChange}/>
+                <input name="email" type="email" placeholder="Váš email" value={values.email} onChange={handleChange}/>
             </div>
-            <textarea placeholder="Vaše zpráva" ref={message} />
-            <button onClick={handleSubmit}>Odeslat</button>
+            <textarea name="message" placeholder="Vaše zpráva" value={values.message} onChange={handleChange}/>
+            <button>Odeslat</button>
         </form>
     );
 }
